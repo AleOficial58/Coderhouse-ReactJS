@@ -1,45 +1,29 @@
+import {useState, useEffect} from "react"
+import Componente1 from "./components/Componente1"
 import ItemListContainer from "./components/ItemListContainer"
 import NavBar from "./components/NavBar"
-import { Center } from "@chakra-ui/react"
-import { CircularProgress, CircularProgressLabel } from '@chakra-ui/react'
-import {
-  Alert,
-  AlertIcon,
-  AlertTitle,
-  AlertDescription,
-} from '@chakra-ui/react'
 
 
 const App = () => {
+ 
 
-     return (
-        <>
-          <NavBar/>
+  const [mensaje, setMensaje]= useState("Mensaje Inicial")
+  const [contador, setContador] = useState(0)
 
-          <div className="ItemStyle">
-          <Center bg="tomato" h="100px" color="white">
-          <ItemListContainer greeting={"LA MEJOR INDUSTRIA, EL MEJOR MERCADO"}/>
-          </Center>
-          
-          </div>
-
-          <div className="Prototype">
-              <CircularProgress isIndeterminate color='green.300' />
-          </div>
-
-
-
-        <div className="warning">
-          <Alert status='warning'>
-            <AlertIcon className="icon"/>
-            <AlertTitle className="nombre">Cargando el servidor, no salga de la pantalla!</AlertTitle>
-            <AlertDescription>¡Gracias por esperar!</AlertDescription>
-            </Alert>  
-        </div>
-          
-          
-        </>
-        
+    useEffect(()=>{
+      console.log("useEffect...")
+    },[mensaje])
+  
+  
+  
+  return (  
+  <>
+    <h2>{mensaje}</h2>
+    <button onClick={() => setMensaje("Mensaje Modificado")}>Cambiar Mensaje</button>
+    <p>{contador}</p>
+    <button onClick={() => setContador(contador + 1)}>Sumar</button>
+    <ItemListContainer propiedadEjemplo="Esta es una propiedad de ejemplo" />
+  </> 
         
   )
 }
