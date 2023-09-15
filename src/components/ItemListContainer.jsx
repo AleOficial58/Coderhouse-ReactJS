@@ -35,6 +35,22 @@ const {categoria} = useParams ()
       categoria: "SIS1",
       precio: 17000,
     },
+    {
+    id: 4,
+    nombre: "REACT JS, Backend + Tecnologias JavaScript, TypeScript y C++ ",
+    descripcion: "LISTA PARA SALIR A PELEAR",
+    stock: 3,
+    categoria: "SIS2",
+    precio: 17000,
+  },
+  {
+    id: 5,
+    nombre: "Backend Pagina",
+    descripcion: "La pagina mas desarrollada del mundo",
+    stock: 7,
+    categoria: "SIS3",
+    precio: 7000,
+  },
   ];
 
 

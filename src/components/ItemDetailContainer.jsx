@@ -29,7 +29,23 @@ const ItemDetailContainer = () => {
       stock: 3,
       categoria: "",
       precio: 17000,
-    }
+    },
+
+    {
+      id: 4,
+      nombre: "REACT JS, Backend + Tecnologias JavaScript, TypeScript y C++ ",
+      descripcion: "LISTA PARA SALIR A PELEAR",
+      stock: 3,
+      categoria: "",
+      precio: 17000,
+    },
+    {id: 5,
+    nombre: "Backend Pagina",
+    descripcion: "La pagina mas desarrollada del mundo",
+    stock: 7,
+    categoria: "",
+    precio: 7000,
+    },
 
     
   ];
