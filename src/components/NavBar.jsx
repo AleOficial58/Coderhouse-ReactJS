@@ -1,47 +1,49 @@
-import * as React from 'react'
-import { ChakraProvider } from '@chakra-ui/react'
+import React from "react";
+import CartWidget from "./CartWidget";
 import {
-    Menu,
-    MenuButton,
-    MenuList,
-    MenuItem,
-    MenuItemOption,
-    MenuGroup,
-    MenuOptionGroup,
-    MenuDivider,
-    Flex, Box, Spacer
-
-  } from '@chakra-ui/react'
-import CartWidget from './CartWidget'
-
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  Flex,
+  Spacer,
+  Box,
+} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   return (
-    <div>
+    <>
+      <div className="navBar">
         <Flex>
-          <Box p='4'>
-            <h3>Industries Tecnologies</h3>
+          <Box bg="burlywood" p="4">
+            <Link to={"/"}>
+              <h3 className="brand">Sistemas</h3>
+            </Link>
           </Box>
-          <Spacer />
-          <Box p='4'>
-                <Menu>
-                  <MenuButton>
-                      Categories
-                  </MenuButton>
-                  <MenuList>
-                      <MenuItem>Categories A</MenuItem>
-                      <MenuItem>Categories B</MenuItem>
-                      <MenuItem>Categories C</MenuItem>
-                  </MenuList>
-              </Menu>
+          <Spacer bg="burlywood" />
+          <Box bg="burlywood" p="4">
+            <Menu>
+              <MenuButton>
+                <p className="menu">Secciones</p>
+              </MenuButton>
+              <MenuList>
+                <MenuItem><Link to={`/categoria/${"SIS1"}`}>Sistema I</Link></MenuItem>
+                <MenuItem><Link to={`/categoria/${"SIS2"}`}>Sistema II</Link></MenuItem>
+                <MenuItem><Link to={`/categoria/${"SIS3"}`}>Sistema III</Link></MenuItem>
+              </MenuList>
+            </Menu>
           </Box>
-          <Spacer />
-          <Box p='4'>
-            <CartWidget/>
+          <Spacer bg="burlywood" />
+          <Box bg="burlywood">
+            <Link to={"/cart"}>
+              <CartWidget />
+            </Link>
           </Box>
         </Flex>
-    </div>
-  )
-}
+      </div>
+    </>
+  );
+};
 
-export default NavBar
+export default NavBar;

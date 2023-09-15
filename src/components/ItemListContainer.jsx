@@ -1,49 +1,69 @@
-import React from 'react'
-import  ItemCount from './ItemCount'
+import { useEffect, useState } from "react";
+import ItemList from "./ItemList";
+import { Grid, GridItem, Img } from "@chakra-ui/react";
+import React from "react";
+import { useParams } from "react-router-dom";
 
-const ItemListContainer = ({greeting}) => {
-  
-  let productos = [
-    {id: 1, nombre: "Servidor 1" ,descripcion: "Descripcion del servidor 1", precio: 1000},
-    {id: 2, nombre: "Servidor 2" ,descripcion: "Descripcion del servidor 2", precio: 1500},
-    {id: 3, nombre: "Servidor 3" ,descripcion: "Descripcion del servidor 3", precio: 2500},
-  ]
-  
-  const mostrarProductos = new Promise((resolve, reject) => {
-    if(productos.length > 0){
+
+
+const ItemListContainer = () => {
+const {categoria} = useParams ()
+
+  const productos = [
+    {
+      id: 1,
+      nombre: "PAGINA WEB DESARROLLO FULL STACK",
+      descripcion: "Desarrollamos tu pagina web con todas las tecnologias",
+      stock: 10,
+      categoria: "SIS1",
+      precio: 2050,
+      Moneda: "USD"
+    },
+    {
+      id: 2,
+      nombre: "Backend Pagina",
+      descripcion: "La pagina mas desarrollada del mundo",
+      stock: 7,
+      categoria: "SIS1",
+      precio: 7000,
+    },
+    {
+      id: 3,
+      nombre: "REACT JS, Backend + Tecnologias JavaScript, TypeScript y C++ ",
+      descripcion: "LISTA PARA SALIR A PELEAR",
+      stock: 3,
+      categoria: "SIS1",
+      precio: 17000,
+    },
+  ];
+
+
+
+  const getProductos = new Promise((resolve, reject) => {
+    if (productos.length > 0) {
       setTimeout(() => {
-        resolve(productos)
-      }, 5000 )
-    
-    }else {
-      reject("No hay productos para mostrar")
+        resolve(productos);
+      }, 2000);
+    } else {
+      reject(new Error("No hay mas datos"));
     }
-  })
+  });
 
-  mostrarProductos
-  .then((resultado)=>{
-    console.log(resultado)
-  })
-  .catch((error) => {
-    console.log(error)
-  })
+  getProductos
+    .then((res) => {})
+    .catch((error) => {
+      console.log(error);
+    });
 
-    return (
-      <>
-        {
-            productos.map((p)=>{
-              return(
-                <div>
-                  <h1>Nombre:{p.nombre}</h1>
-                  <h3>Descripcion:{p.descripcion}</h3>
-                  <p>Precio:{p.precio}</p>
-                </div>
-              )
-          })
-      }
 
-    </>
-  )
-}
+const productosFiltrados = productos.filter((producto) => producto.categoria === categoria)
 
-export default ItemListContainer
+  return (
+
+      categoria ? <ItemList productos={productosFiltrados} /> : <ItemList productos={productos} />
+
+  );
+};
+
+
+export default ItemListContainer;

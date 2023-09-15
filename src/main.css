@@ -1,23 +1,42 @@
-.ItemStyle{
-    margin-top: 40px;
-    margin-left: 0px;
+.brand {
+    font-family: 'Impact', normal;
+    font-size: 40px;
+    color: #aa9585;
 }
 
-.Prototype{
-    margin-top: 100px;
-    margin-left: 710px;
+.menu {
+    font-family: 'Impact', normal;
+    font-size: 40px;
+    color: #aa9585;
+}
+.material-symbols-outlined {
+    font-size: 40px;
 }
 
-.warning{
-    margin-top: 100px;
-    
+
+.cartShop {
+    padding: 16px;
+    font-family: 'Impact', cursive;
+    font-size: 40px;
+    color: #aa9585;;
 }
 
-.nombre{
-    margin-left: 450px;
+.greeting {
+    padding-top: 16px;
+    text-align: center;
+    font-size: xx-large;
+    color: #aa9585;
+    font-family:'Impact', cursive;
+}
+.numeroContador {
+    font-size: x-large;
+    font-family: 'Impact';
+    margin: 1rem;
+}
+.contador {
+    margin-left: 15px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
 }
 
-.icon{
-    position: relative;
-    left: 450px;
-}
